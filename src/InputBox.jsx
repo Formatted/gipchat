@@ -8,7 +8,7 @@ class InputBox extends Component {
     super();
     this.state = {
       question: 'this is y Q',
-      reply: '',
+      reply: 'http://media3.giphy.com/media/VtOUGnwCOouCQ/200.gif',
       value: '',
     };
     this.speak = this.speak.bind(this);
