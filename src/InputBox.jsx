@@ -1,7 +1,8 @@
 /* eslint-env browser*/
 /* global $ */
+/* global responsiveVoice */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 class InputBox extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class InputBox extends Component {
     this.state = {
       question: 'this is y Q',
       reply: 'http://media3.giphy.com/media/VtOUGnwCOouCQ/200.gif',
+      replyHumanReadable: '',
       value: '',
     };
     this.speak = this.speak.bind(this);
