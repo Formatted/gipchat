@@ -22,17 +22,33 @@ class InputBox extends Component {
   }
 
   speak() {
+    const myQ = this.state.value;
     this.setState({ question: this.state.value, value: '' });
-    responsiveVoice.speak(this.state.value, 'UK English Male');
+    // $.post(`/question/${myQ}`, (req, res) => {
+    //   console.log(res.body, '==============')
+    //   this.setState({ reply: res.body.reply, replyHumanReadable: res.body.replyHumanReadable });
+    // });
     $.ajax({
-      url: `http://api.giphy.com/v1/stickers/search?q="${this.state.value}"&api_key=dc6zaTOxFJmzC`,
+      url: `/question/${myQ}`,
       dataType: 'json',
-      method: 'GET',
-      cache: false,
+      method: 'POST',
       success: (data) => {
-        this.setState({ reply: data.data[0].images.fixed_height.url });
+        // const sayNow = data.replyHumanReadable;
+        // console.log(sayNow, 'after say now');
+        // responsiveVoice.speak(sayNow, 'UK English Male');
+        this.setState({ reply: data.reply, replyHumanReadable: data.replyHumanReadable });
+        responsiveVoice.speak(this.state.replyHumanReadable, 'UK English Male');
       },
     });
+    // $.ajax({
+    //   url: `http://api.giphy.com/v1/stickers/search?q="${this.state.value}"&api_key=dc6zaTOxFJmzC`,
+    //   dataType: 'json',
+    //   method: 'GET',
+    //   cache: false,
+    //   success: (data) => {
+    //     this.setState({ reply: data.data[0].images.fixed_height.url });
+    //   },
+    // });
   }
 
   render() {
