@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Obligatory Hello World</p>
+        <p>GipChat w/ AI</p>
         <InputBox />
       </div>
     );

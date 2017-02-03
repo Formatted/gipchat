@@ -22,9 +22,9 @@ bot.create((err, session) => {
 
 });
 //  here is how to talk to the bot
-bot.ask('Just a small town girl', (err, response) => {
-  console.log(response); // Will likely be: "Living in a lonely world"
-});
+// bot.ask('Just a small town girl', (err, response) => {
+//   console.log(response); // Will likely be: "Living in a lonely world"
+// });
 
 app.use(express.static(`${__dirname}/`));
 
@@ -34,13 +34,14 @@ app.get('/', (req, res) => {
 
 app.post('/question/:qq', (req, res) => {
   bot.ask(req.params.qq, (err, response) => {
-    request(`http://api.giphy.com/v1/stickers/search?q=${urlencode(response)}&api_key=dc6zaTOxFJmzC`, (error, response2, body) => {
+    request(`http://api.giphy.com/v1/gifs/search?q=${urlencode(response)}&api_key=dc6zaTOxFJmzC`, (error, response2, body) => {
       if (!error && response2.statusCode === 200) {
         const foo = JSON.parse(response2.body);
-        res.send(JSON.stringify({ reply: foo.data[0].images.fixed_height.url,
+        res.send(JSON.stringify({ reply: foo.data[0].images.fixed_height_small.url,
           replyHumanReadable: response }));
       } else {
         console.log(error, 'in error');
+        res.send(JSON.stringify({ reply: 'http://media2.giphy.com/media/iuHaJ0D7macZq/100.gif', replyHumanReadable: response }));
       }
     });
     // res.send(JSON.stringify({ reply: response }));
