@@ -3,6 +3,7 @@
 /* global responsiveVoice */
 
 import React, { Component } from 'react';
+import Convo from './Convo';
 
 class InputBox extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class InputBox extends Component {
       reply: 'http://media3.giphy.com/media/VtOUGnwCOouCQ/200.gif',
       replyHumanReadable: '',
       value: '',
+      history: [],
     };
     this.speak = this.speak.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -36,6 +38,12 @@ class InputBox extends Component {
         // const sayNow = data.replyHumanReadable;
         // console.log(sayNow, 'after say now');
         // responsiveVoice.speak(sayNow, 'UK English Male');
+        // this.setState((prevState, props) => {
+        //   return { history: prevState.history.push([myQ, data.replyHumanReadable]) };
+        // });
+        const history2 = this.state.history;
+        history2.push([myQ, data.replyHumanReadable]);
+        this.setState({ history: history2 });
         this.setState({ reply: data.reply, replyHumanReadable: data.replyHumanReadable });
         responsiveVoice.speak(this.state.replyHumanReadable, 'UK English Male');
       },
@@ -59,6 +67,7 @@ class InputBox extends Component {
           Let&apos;s hear it!
         </button>
         <img src={this.state.reply} alt="asd" />
+        <Convo history={this.state.history} />
       </div>
     );
   }
