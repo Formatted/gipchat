@@ -10,7 +10,7 @@ class InputBox extends Component {
     super();
     this.state = {
       question: 'this is y Q',
-      reply: 'http://media2.giphy.com/media/12psn8ymXy3dYs/200.gif',
+      reply: 'https://media2.giphy.com/media/12psn8ymXy3dYs/200.gif',
       replyHumanReadable: '',
       value: '',
       history: [],
