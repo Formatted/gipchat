@@ -10,17 +10,24 @@ class InputBox extends Component {
     super();
     this.state = {
       question: 'this is y Q',
-      reply: 'http://media2.giphy.com/media/12psn8ymXy3dYs/100.gif',
+      reply: 'http://media2.giphy.com/media/12psn8ymXy3dYs/200.gif',
       replyHumanReadable: '',
       value: '',
       history: [],
     };
     this.speak = this.speak.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.enterHit = this.enterHit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
+  }
+
+  enterHit(e) {
+    if (e.key === 'Enter') {
+      this.speak();
+    }
   }
 
   speak() {
@@ -43,11 +50,8 @@ class InputBox extends Component {
   render() {
     return (
       <div className="inputBox">
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
-        <button onClick={this.speak}>
-          Let&apos;s hear it!
-        </button>
-        <img src={this.state.reply} alt="asd" />
+        <img id="picRpl" src={this.state.reply} alt="asd" />
+        <input type="text" value={this.state.value} onChange={this.handleChange} onKeyPress={this.enterHit} />
         <Convo history={this.state.history} />
       </div>
     );
