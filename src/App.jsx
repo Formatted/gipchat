@@ -1,4 +1,5 @@
 /* eslint-env browser*/
+/* eslint-env jquery*/
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -27,7 +28,7 @@ const App = React.createClass({
   componentWillMount() {
     const mql = window.matchMedia('(min-width: 800px)');
     mql.addListener(this.mediaQueryChanged);
-    this.setState({ mql: mql, docked: mql.matches });
+    this.setState({ mql: mql, docked: mql.matches, width: $(window).width() });
   },
 
   componentWillUnmount() {
@@ -39,7 +40,8 @@ const App = React.createClass({
   },
 
   mediaQueryChanged() {
-    this.setState({ docked: this.state.mql.matches });
+    this.setState({ docked: this.state.mql.matches && $(window).width() > 799,
+      width: $(window).width() });
   },
 
   toggleOpen(ev) {
