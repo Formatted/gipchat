@@ -34,14 +34,17 @@ app.get('/', (req, res) => {
 
 app.post('/question/:qq', (req, res) => {
   bot.ask(req.params.qq, (err, response) => {
-    request(`http://api.giphy.com/v1/gifs/search?q=${urlencode(response)}&api_key=dc6zaTOxFJmzC`, (error, response2, body) => {
+    request(`https://api.giphy.com/v1/gifs/search?q=${urlencode(response)}&api_key=dc6zaTOxFJmzC`, (error, response2, body) => {
       if (!error && response2.statusCode === 200) {
         const foo = JSON.parse(response2.body);
-        res.send(JSON.stringify({ reply: foo.data[0].images.fixed_height_small.url,
+        if (foo.data[0] === undefined) {
+          res.send(JSON.stringify({ reply: 'https://media2.giphy.com/media/iuHaJ0D7macZq/200.gif', replyHumanReadable: response }));
+        }
+        res.send(JSON.stringify({ reply: foo.data[0].images.fixed_height.url,
           replyHumanReadable: response }));
       } else {
         console.log(error, 'in error');
-        res.send(JSON.stringify({ reply: 'http://media2.giphy.com/media/iuHaJ0D7macZq/100.gif', replyHumanReadable: response }));
+        res.send(JSON.stringify({ reply: 'https://media2.giphy.com/media/iuHaJ0D7macZq/200.gif', replyHumanReadable: response }));
       }
     });
     // res.send(JSON.stringify({ reply: response }));
