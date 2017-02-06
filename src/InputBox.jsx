@@ -42,7 +42,7 @@ class InputBox extends Component {
         history2.push([myQ, data.replyHumanReadable]);
         this.setState({ history: history2 });
         this.setState({ reply: data.reply, replyHumanReadable: data.replyHumanReadable });
-        responsiveVoice.speak(this.state.replyHumanReadable, 'UK English Male');
+        responsiveVoice.speak(this.state.replyHumanReadable, 'UK English Female');
       },
     });
   }
@@ -51,7 +51,7 @@ class InputBox extends Component {
     return (
       <div className="inputBox">
         <img id="picRpl" src={this.state.reply} alt="asd" />
-        <input type="text" value={this.state.value} onChange={this.handleChange} onKeyPress={this.enterHit} />
+        <input id="inputBoxBack"type="text" value={this.state.value} onChange={this.handleChange} onKeyPress={this.enterHit} />
         <Convo history={this.state.history} />
       </div>
     );

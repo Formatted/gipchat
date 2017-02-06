@@ -22,7 +22,7 @@ const styles = {
 
 const App = React.createClass({
   getInitialState() {
-    return { docked: false, open: false };
+    return { docked: false, open: false, sizze: $(window).width() };
   },
 
   componentWillMount() {

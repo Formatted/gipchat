@@ -10,3 +10,7 @@ body {
 #picRpl {
   align-self: center;
 }
+#inputBoxBack {
+  background-color: #e2ccff;
+  border: 0px;
+}

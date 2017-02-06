@@ -6,8 +6,8 @@ const styles = {
     fontWeight: 300,
   },
   header: {
-    backgroundColor: '#03a9f4',
-    color: 'white',
+    backgroundColor: '#AC6FFD',
+    color: '#e2ccff',
     padding: '16px',
     fontSize: '1.5em',
   },
