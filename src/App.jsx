@@ -1,3 +1,5 @@
+/* eslint-env browser*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MaterialTitlePanel from './MaterialTitlePanel';
@@ -13,18 +15,19 @@ const styles = {
   },
   content: {
     padding: '16px',
+    backgroundColor: '#ccaef2',
   },
 };
 
 const App = React.createClass({
   getInitialState() {
-    return {docked: false, open: false};
+    return { docked: false, open: false };
   },
 
   componentWillMount() {
-    const mql = window.matchMedia(`(min-width: 800px)`);
+    const mql = window.matchMedia('(min-width: 800px)');
     mql.addListener(this.mediaQueryChanged);
-    this.setState({mql: mql, docked: mql.matches});
+    this.setState({ mql: mql, docked: mql.matches });
   },
 
   componentWillUnmount() {
@@ -32,15 +35,15 @@ const App = React.createClass({
   },
 
   onSetOpen(open) {
-    this.setState({open: open});
+    this.setState({ open: open });
   },
 
   mediaQueryChanged() {
-    this.setState({docked: this.state.mql.matches});
+    this.setState({ docked: this.state.mql.matches });
   },
 
   toggleOpen(ev) {
-    this.setState({open: !this.state.open});
+    this.setState({ open: !this.state.open });
 
     if (ev) {
       ev.preventDefault();
@@ -53,7 +56,7 @@ const App = React.createClass({
     const contentHeader = (
       <span>
         {!this.state.docked &&
-         <a onClick={this.toggleOpen} href="#" style={styles.contentHeaderMenuLink}>=</a>}
+        <a onClick={this.toggleOpen} href="#" style={styles.contentHeaderMenuLink}>=</a>}
         <span> GipChat w/ AI</span>
       </span>);
 
