@@ -10,8 +10,6 @@ import styles from './Styles';
 
 const $ = require('jquery');
 
-// Need to refactor from the old example
-// eslint-disable-next-line react/prefer-es6-class
 class App extends Component {
   constructor() {
     super();
