@@ -16,7 +16,7 @@ const styles = {
   },
   content: {
     padding: '16px',
-    backgroundColor: '#ccaef2',
+    backgroundColor: '#80B3DA',
   },
 };
 

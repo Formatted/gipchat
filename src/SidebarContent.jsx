@@ -20,7 +20,7 @@ const styles = {
   content: {
     padding: '16px',
     height: '100%',
-    backgroundColor: '#ccaef2',
+    backgroundColor: '#80B3DA',
   },
 };
 
