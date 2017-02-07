@@ -2,7 +2,6 @@
 /* eslint-env jquery*/
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import MaterialTitlePanel from './MaterialTitlePanel';
 import SidebarContent from './SidebarContent';
 import Sidebar from './Sidebar';
@@ -11,6 +10,7 @@ import styles from './Styles';
 
 const $ = require('jquery');
 
+// Need to refactor from the old example
 const App = React.createClass({
   getInitialState() {
     return { docked: false, open: false, sizze: $(window).width() };
