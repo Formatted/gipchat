@@ -7,18 +7,9 @@ import MaterialTitlePanel from './MaterialTitlePanel';
 import SidebarContent from './SidebarContent';
 import Sidebar from './Sidebar';
 import InputBox from './InputBox';
+import styles from './Styles';
 
-const styles = {
-  contentHeaderMenuLink: {
-    textDecoration: 'none',
-    color: '#B2D5EF',
-    padding: 8,
-  },
-  content: {
-    padding: '16px',
-    backgroundColor: '#80B3DA',
-  },
-};
+const $ = require('jquery');
 
 const App = React.createClass({
   getInitialState() {
@@ -28,7 +19,7 @@ const App = React.createClass({
   componentWillMount() {
     const mql = window.matchMedia('(min-width: 800px)');
     mql.addListener(this.mediaQueryChanged);
-    this.setState({ mql: mql, docked: mql.matches, width: $(window).width() });
+    this.setState({ mql, docked: mql.matches, width: $(window).width() });
   },
 
   componentWillUnmount() {
@@ -36,7 +27,7 @@ const App = React.createClass({
   },
 
   onSetOpen(open) {
-    this.setState({ open: open });
+    this.setState({ open });
   },
 
   mediaQueryChanged() {
@@ -63,7 +54,7 @@ const App = React.createClass({
       </span>);
 
     const sidebarProps = {
-      sidebar: sidebar,
+      sidebar,
       docked: this.state.docked,
       open: this.state.open,
       onSetOpen: this.onSetOpen,

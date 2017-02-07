@@ -183,7 +183,7 @@ class Sidebar extends React.Component {
     const width = ReactDOM.findDOMNode(this.refs.sidebar).offsetWidth;
 
     if (width !== this.state.sidebarWidth) {
-      this.setState({sidebarWidth: width});
+      this.setState({ sidebarWidth: width });
     }
   }
 
@@ -212,14 +212,14 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const sidebarStyle = {...defaultStyles.sidebar, ...this.props.styles.sidebar};
-    const contentStyle = {...defaultStyles.content, ...this.props.styles.content};
-    const overlayStyle = {...defaultStyles.overlay, ...this.props.styles.overlay};
+    const sidebarStyle = { ...defaultStyles.sidebar, ...this.props.styles.sidebar };
+    const contentStyle = { ...defaultStyles.content, ...this.props.styles.content };
+    const overlayStyle = { ...defaultStyles.overlay, ...this.props.styles.overlay };
     const useTouch = this.state.dragSupported && this.props.touch;
     const isTouching = this.isTouching();
     const rootProps = {
       className: this.props.rootClassName,
-      style: {...defaultStyles.root, ...this.props.styles.root},
+      style: { ...defaultStyles.root, ...this.props.styles.root },
     };
     let dragHandle;
 
@@ -258,8 +258,8 @@ class Sidebar extends React.Component {
     } else if (this.props.docked) {
       // show sidebar
       if (this.state.sidebarWidth !== 0) {
-        sidebarStyle.transform = `translateX(0%)`;
-        sidebarStyle.WebkitTransform = `translateX(0%)`;
+        sidebarStyle.transform = 'translateX(0%)';
+        sidebarStyle.WebkitTransform = 'translateX(0%)';
       }
 
       // make space on the left/right side of the content for the sidebar
@@ -270,8 +270,8 @@ class Sidebar extends React.Component {
       }
     } else if (this.props.open) {
       // slide open sidebar
-      sidebarStyle.transform = `translateX(0%)`;
-      sidebarStyle.WebkitTransform = `translateX(0%)`;
+      sidebarStyle.transform = 'translateX(0%)';
+      sidebarStyle.WebkitTransform = 'translateX(0%)';
 
       // show overlay
       overlayStyle.opacity = 1;
@@ -293,7 +293,7 @@ class Sidebar extends React.Component {
         rootProps.onTouchCancel = this.onTouchEnd;
         rootProps.onScroll = this.onScroll;
       } else {
-        const dragHandleStyle = {...defaultStyles.dragHandle, ...this.props.styles.dragHandle};
+        const dragHandleStyle = { ...defaultStyles.dragHandle, ...this.props.styles.dragHandle };
         dragHandleStyle.width = this.props.touchHandleWidth;
 
         // dragHandleStyle right/left
@@ -304,9 +304,11 @@ class Sidebar extends React.Component {
         }
 
         dragHandle = (
-          <div style={dragHandleStyle}
-               onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove}
-               onTouchEnd={this.onTouchEnd} onTouchCancel={this.onTouchEnd} />);
+          <div
+            style={dragHandleStyle}
+            onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove}
+            onTouchEnd={this.onTouchEnd} onTouchCancel={this.onTouchEnd}
+          />);
       }
     }
 
@@ -315,12 +317,13 @@ class Sidebar extends React.Component {
         <div className={this.props.sidebarClassName} style={sidebarStyle} ref="sidebar">
           {this.props.sidebar}
         </div>
-        <div className={this.props.overlayClassName}
-             style={overlayStyle}
-             role="presentation"
-             tabIndex="0"
-             onClick={this.overlayClicked}
-          />
+        <div
+          className={this.props.overlayClassName}
+          style={overlayStyle}
+          role="presentation"
+          tabIndex="0"
+          onClick={this.overlayClicked}
+        />
         <div className={this.props.contentClassName} style={contentStyle}>
           {dragHandle}
           {this.props.children}
