@@ -7,7 +7,7 @@
     "postinstall": "webpack -p",
     "dev": "webpack -d --watch",
     "start": "node server.js",
-    "test": "eslint --ext .js --ext .jsx --fix . && mocha -t 12000 -R spec spec/*.js",
+    "test": "eslint --ext .js --ext .jsx --fix .",
     "test2": "react-scripts test --env=jsdom"
   },
   "engines": {
