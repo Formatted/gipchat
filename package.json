@@ -4,7 +4,7 @@
   "description": "chatbot with giphy",
   "main": "server.js",
   "scripts": {
-    "postinstall": "webpack",
+    "postinstall": "webpack -p",
     "dev": "webpack -d --watch",
     "start": "node server.js",
     "test": "eslint --ext .js --ext .jsx --fix . && mocha -t 12000 -R spec spec/*.js",
