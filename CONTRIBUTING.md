@@ -36,7 +36,7 @@
 Use github’s interface to make a fork of the repo, then add that repo as an upstream remote:
 
 ```
-git remote add upstream https://github.com/HRR18-Harambe/Swick.git
+git remote add upstream
 ```
 
 ### Cut a namespaced feature branch from master
