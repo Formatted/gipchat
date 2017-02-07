@@ -9,11 +9,10 @@ class Convo extends Component {
     });
     if (this.props.history.length === 0) {
       return <p>Ask away!</p>;
-    } else {
-      return (
-        <div>{ rows }</div>
-      );
     }
+    return (
+      <div>{ rows }</div>
+    );
   }
 }
 

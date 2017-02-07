@@ -31,7 +31,7 @@ class App extends Component {
   componentWillMount() {
     const mql = window.matchMedia('(min-width: 800px)');
     mql.addListener(this.mediaQueryChanged);
-    this.setState({ mql: mql, docker: mql.matches });
+    this.setState({ mql, docker: mql.matches });
   }
 
   componentWillUnmount() {
@@ -39,7 +39,7 @@ class App extends Component {
   }
 
   onSetSidebarOpen(open) {
-    this.setState({ open: open });
+    this.setState({ open });
   }
 
   mediaQueryChanged() {
@@ -60,12 +60,12 @@ class App extends Component {
     const contentHeader = (
       <span>
         {!this.state.docked &&
-         <a onClick={this.toggleOpen} href="#" style={styles.contentHeaderMenuLink}>=</a>}
+        <a onClick={this.toggleOpen} href="#" style={styles.contentHeaderMenuLink}>=</a>}
         <span> GipChat w/ AI</span>
       </span>);
 
     const sidebarProps = {
-      sidebar: sidebar,
+      sidebar,
       docked: this.state.docked,
       open: this.state.open,
       onSetOpen: this.onSetOpen,
@@ -77,7 +77,7 @@ class App extends Component {
             <div style={styles.content}>
               <p>
                 This example will automatically dock the sidebar if the page
-                width is above 800px (which is currently {'' + this.state.docked}).
+                width is above 800px (which is currently {`${this.state.docked}`}).
               </p>
               <p>
                 This functionality should live in the component that renders the sidebar.

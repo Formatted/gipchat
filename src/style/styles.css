@@ -1,5 +1,5 @@
 body {
-  background-color: #ccaef2;
+  background-color: #80B3DA;
 }
 .inputBox {
   display: -webkit-flex; /* Safari */
@@ -11,6 +11,6 @@ body {
   align-self: center;
 }
 #inputBoxBack {
-  background-color: #e2ccff;
+  background-color: #B2D5EF;
   border: 0px;
 }
