@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Lines extends Component {
-  render() {
-    return (
-      <div>
-        <p>{this.props.ans}</p>
-        <p>{this.props.question}</p>
-      </div>
-    );
-  }
-}
+const Lines = props => (
+  <div>
+    <p>{props.ans}</p>
+    <p>{props.question}</p>
+  </div>
+);
 
 export default Lines;

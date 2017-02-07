@@ -1,3 +1,5 @@
+/* eslint-disable  jsx-a11y/anchor-has-content */
+
 import React from 'react';
 import MaterialTitlePanel from './MaterialTitlePanel';
 import styles from './Styles';

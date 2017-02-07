@@ -15,22 +15,19 @@ class InputBox extends Component {
       value: '',
       history: [],
     };
-    this.speak = this.speak.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.enterHit = this.enterHit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ value: event.target.value });
   }
 
-  enterHit(e) {
+  enterHit = (e) => {
     if (e.key === 'Enter') {
       this.speak();
     }
   }
 
-  speak() {
+  speak = () => {
     const myQ = this.state.value;
     this.setState({ question: this.state.value, value: '' });
     $.ajax({

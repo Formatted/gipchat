@@ -2,7 +2,6 @@
 /* eslint-env jquery*/
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import MaterialTitlePanel from './MaterialTitlePanel';
 import SidebarContent from './SidebarContent';
 import Sidebar from './Sidebar';
@@ -11,6 +10,8 @@ import styles from './Styles';
 
 const $ = require('jquery');
 
+// Need to refactor from the old example
+// eslint-disable-next-line react/prefer-es6-class
 const App = React.createClass({
   getInitialState() {
     return { docked: false, open: false, sizze: $(window).width() };
@@ -49,6 +50,7 @@ const App = React.createClass({
     const contentHeader = (
       <span>
         {!this.state.docked &&
+        // eslint-disable-next-line jsx-a11y/href-no-hash
         <a onClick={this.toggleOpen} href="#" style={styles.contentHeaderMenuLink}>=</a>}
         <span> GipChat w/ AI</span>
       </span>);
