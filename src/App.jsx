@@ -1,7 +1,7 @@
 /* eslint-env browser*/
 /* eslint-env jquery*/
 
-import React from 'react';
+import React, { Component } from 'react';
 import MaterialTitlePanel from './MaterialTitlePanel';
 import SidebarContent from './SidebarContent';
 import Sidebar from './Sidebar';
@@ -12,37 +12,38 @@ const $ = require('jquery');
 
 // Need to refactor from the old example
 // eslint-disable-next-line react/prefer-es6-class
-const App = React.createClass({
-  getInitialState() {
-    return { docked: false, open: false, sizze: $(window).width() };
-  },
+class App extends Component {
+  constructor() {
+    super();
+    this.state = { docked: false, open: false, sizze: $(window).width() };
+  }
 
   componentWillMount() {
     const mql = window.matchMedia('(min-width: 800px)');
     mql.addListener(this.mediaQueryChanged);
     this.setState({ mql, docked: mql.matches, width: $(window).width() });
-  },
+  }
 
   componentWillUnmount() {
     this.state.mql.removeListener(this.mediaQueryChanged);
-  },
+  }
 
-  onSetOpen(open) {
+  onSetOpen = (open) => {
     this.setState({ open });
-  },
+  }
 
-  mediaQueryChanged() {
+  mediaQueryChanged = () => {
     this.setState({ docked: this.state.mql.matches && $(window).width() > 799,
       width: $(window).width() });
-  },
+  }
 
-  toggleOpen(ev) {
+  toggleOpen = (ev) => {
     this.setState({ open: !this.state.open });
 
     if (ev) {
       ev.preventDefault();
     }
-  },
+  }
 
   render() {
     const sidebar = <SidebarContent />;
@@ -71,7 +72,7 @@ const App = React.createClass({
         </MaterialTitlePanel>
       </Sidebar>
     );
-  },
-});
+  }
+}
 
 export default App;
