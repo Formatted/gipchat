@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Lines = () => (
+const Lines = props => (
   <div>
-    <p>{this.props.ans}</p>
-    <p>{this.props.question}</p>
+    <p>{props.ans}</p>
+    <p>{props.question}</p>
   </div>
 );
 

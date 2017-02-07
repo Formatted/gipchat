@@ -5,6 +5,9 @@
       "import/resolver": "webpack"
     },
     "plugins": [
-        "react"
-    ]
+      "react"
+    ],
+    "rules": {
+      "react/prop-types": "off"
+    }
 }
