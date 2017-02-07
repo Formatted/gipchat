@@ -11,7 +11,7 @@ import InputBox from './InputBox';
 const styles = {
   contentHeaderMenuLink: {
     textDecoration: 'none',
-    color: 'white',
+    color: '#B2D5EF',
     padding: 8,
   },
   content: {
