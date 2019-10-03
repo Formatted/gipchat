@@ -1,6 +1,6 @@
 # gipchat
 
-chatbot w/ a little giphy
+chatbot w/ a little giphy!
 
 ## Requirements
 
